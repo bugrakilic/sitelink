@@ -1,1 +1,4 @@
 requests
+socket
+csv 
+datetime
