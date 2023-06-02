@@ -2,20 +2,17 @@
 Sitelink is a tool that checks the status of the destination host addresses periodically or manually. It sends a request to the destination host, and receives a response about its status and IP addresses. 
 
 ## Requirements: 
-requests
-
-socket
-
-csv 
-
-datetime
+- requests
+- socket
+- csv 
+- datetime
 
 ## Usage: 
-- Clone the repository. 
-- Install the required dependencies. 
-- List your destination host addresses without 'http://' or 'https://' in "destination.txt" file. 
-- Run the "sitelink.py" script. 
-- The output will be recorded in "statuslog.csv" file. 
+1. Clone the repository. 
+2. Install the required dependencies. 
+3. List your destination host addresses without 'http://' or 'https://' in "destination.txt" file. 
+4. Run the "sitelink.py" script. 
+5. The output will be recorded in "statuslog.csv" file. 
 
 ## Additional Notes: 
 - A simple UI (aka. status page) can be developed via Flask or Django. So the latest status of the hosts would be shown on the frontend. 

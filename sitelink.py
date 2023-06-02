@@ -1,6 +1,4 @@
-import csv
-import requests
-import socket
+import csv, requests, socket
 from datetime import datetime 
 
 status_dict = {}
@@ -25,9 +23,9 @@ def main():
                             
     # writing the status of the requests. 
     with open("statuslog.csv", "a", newline="") as fw:
-        csv_writers = csv.writer(fw)
+        filewriter = csv.writer(fw)
         for key in status_dict.keys():
-            csv_writers.writerow([timestamp, key, status_dict[key]])
+            filewriter.writerow([timestamp, key, status_dict[key]])
 
 if __name__ == "__main__":
     main() 
