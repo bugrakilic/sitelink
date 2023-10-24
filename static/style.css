@@ -1,0 +1,16 @@
+html, body {
+    font-family: 'Tahoma';
+}
+
+.toptitle {
+    font-weight: bold;
+    color: darkblue;
+}
+
+.toptitle:hover {
+    color: blue;
+}
+
+.indicator {
+    font-weight: bold;
+}

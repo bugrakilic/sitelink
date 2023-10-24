@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Website Health Check</title>
+</head>
+<body>
+    <h1 class="toptitle" style="text-align: center">Website Health Check</h1>
+    <div style="text-align: center">
+        <label for="website_name">Host:</label>
+        <input type="text" id="website_name" value="{{ website_data['name'] }}">
+        <label for="check_period">Period (sec):</label>
+        <input type="number" id="check_period" value="{{ website_data['check_period'] }}">
+        <span id="status">Status: <span class="indicator" id="status_indicator" style="color: red">{{ website_data['status'] }}</span></span>
+    </div>
+    <script>
+        function updateStatus() {
+            const websiteName = document.getElementById("website_name").value;
+            const checkPeriod = document.getElementById("check_period").value;
+
+            fetch('/update_status', {
+                method: 'POST',
+                body: new URLSearchParams({ website_name: websiteName, check_period: checkPeriod }),
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const statusElement = document.getElementById("status_indicator");
+                if (data.status === 'Healthy') {
+                    statusElement.style.color = 'green';
+                } else {
+                    statusElement.style.color = 'red';
+                }
+                statusElement.textContent = data.status;
+            });
+        }
+
+        document.getElementById("check_period").addEventListener("change", updateStatus);
+        document.getElementById("website_name").addEventListener("change", updateStatus);
+
+        // Initially, update the status
+        updateStatus();
+    </script>
+</body>
+</html>
