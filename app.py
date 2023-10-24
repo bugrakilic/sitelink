@@ -7,8 +7,8 @@ import csv
 app = Flask(__name__)
 
 website_data = {
-    "name": "",
-    "status": "Unknown",
+    "name": "", 
+    "status": "Unknown", 
     "check_period": 10,
 }
 

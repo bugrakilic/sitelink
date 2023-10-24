@@ -1,4 +1,6 @@
+flask==2.1.2
 requests
 socket
 csv 
-datetime
+time
+threading
